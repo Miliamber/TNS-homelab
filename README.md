@@ -5,3 +5,4 @@ TrueNAS Scale example configuration
 2. [Traefik](Traefik.md)
 3. [OpenLDAP](OpenLDAP.md)
 4. [Authelia](Authelia.md)
+5. [Nextcloud](Nextcloud.md)
