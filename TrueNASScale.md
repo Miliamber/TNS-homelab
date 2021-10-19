@@ -1,6 +1,6 @@
 # TrueNAS Scale
 
-System Settings > General > GUI > Settings
+_**System Settings > General > GUI > Settings**_
 | Label | Value | Comment |
 |--|--|--|
 | Web Interface HTTP Port| `81` |  |
