@@ -21,7 +21,10 @@
 | SMTP Provider | true (checked) | please enter in the following fields your SMTP settings |
 | Enable Ingress | true (checked) | please enter your SSL settings |
 
-
+## Optional settings
+| Label | Value | Comment |
+|--|--|--|
+| Theme | `dark` | color schema |
 
 
 
