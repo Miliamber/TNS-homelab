@@ -1,6 +1,40 @@
 # Nextcloud
 
-## Plugins
+## Dataset
+
+_**Storage > <select your pool> ... > Add Dataset**_
+
+| Label | Value | Comment |
+|--|--|--|
+| Name * | `nextcloud` |  |
+| Comments | `nextcloud data dir` |  |
+
+_**Storage > <select nextcloud> ... > View Permissions > Edit**_
+  
+| Label | Value | Comment |
+|--|--|--|
+| Group | `www-data` |  |
+| Apply User | true (checked) |  |
+| Apply Group | true (checked) |  |
+| Access Mode | Select 770 Mask |  |
+  
+## App
+  
+| Label | Value | Comment |
+|--|--|--|
+| Application Name * | `nextcloud` | name is important for DNS link[^1] |
+| NEXTCLOUD_ADMIN_USER * | `admin` |  |
+| NEXTCLOUD_ADMIN_PASSWORD * | _`<secret>`_ |  |
+| **Environment Variable**  |  |  |
+|  NEXTCLOUD_DATA_DIR  | `/mnt/nextcloud` |  |
+| Service Type | `Cluster IP` |  |
+| **Configure Additional app storage**  |  |  |
+| (Advanced) Type of Storage | `hostPath` |  |
+| hostPath | <select a dataset for sharing> |  |
+| mountPath * | `/mnt/nextcloud` |  |
+| Enable Ingress | true (checked) | please enter your SSL settings |
+
+### Plugins
 
 *Enable*
 
@@ -19,13 +53,13 @@ _**Profile > + APPS > Organization > Write support for LDAP > Download and enabl
 
 > **Note:** App names may differ in other languages
 
-## Setup LDAP
+### Setup LDAP
 
 _**Profile > Settings > LDAP/AD integration**_
 
-### LDAP/AD integration
+#### LDAP/AD integration
 
-#### Server
+##### Server
 | Label | Value | Comment |
 |--|--|--|
 | Host| `ldap://openldap.ix-openldap.svc.cluster.local` |  |
@@ -34,22 +68,22 @@ _**Profile > Settings > LDAP/AD integration**_
 | One Base DN per line | `dc=mydomain,dc=com` |  |
 | Manually enter LDAP filters (recommended for large directories) | true (checked) |  |
 
-#### Users
+##### Users
 | Label | Value | Comment |
 |--|--|--|
 | Edit LDAP Query | `(objectclass=inetOrgPerson)` |  |
 
-#### Login Attributes
+##### Login Attributes
 | Label | Value | Comment |
 |--|--|--|
 | Edit LDAP Query | `(&(objectClass=inetOrgPerson)(\|(uid=%uid)(mail=%uid)))` |  |
 
-#### Groups
+##### Groups
 | Label | Value | Comment |
 |--|--|--|
 | Edit LDAP Query | `(objectClass=groupOfNames)` |  |
 
-#### Advanced
+##### Advanced
 | Label | Value | Comment |
 |--|--|--|
 | **Directory Settings** |
@@ -65,7 +99,7 @@ _**Profile > Settings > LDAP/AD integration**_
 | User Home Folder Naming Rule | `` | TBD |
 | "$home" Placeholder Fiel | `` | TBD |
 
-#### Writing
+##### Writing
 | Label | Value | Comment |
 |--|--|--|
 | Prevent fallback to other backends when creating users or groups. | true (checked) |  |
