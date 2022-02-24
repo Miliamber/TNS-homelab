@@ -2,14 +2,14 @@
 
 ## Dataset
 
-_**Storage > <select your pool> ... > Add Dataset**_
+_**Storage > \<select your pool> ... > Add Dataset**_
 
 | Label | Value | Comment |
 |--|--|--|
 | Name * | `nextcloud` |  |
 | Comments | `nextcloud data dir` |  |
 
-_**Storage > <select nextcloud> ... > View Permissions > Edit**_
+_**Storage > \<select nextcloud> ... > View Permissions > Edit**_
   
 | Label | Value | Comment |
 |--|--|--|
@@ -30,9 +30,22 @@ _**Storage > <select nextcloud> ... > View Permissions > Edit**_
 | Service Type | `Cluster IP` |  |
 | **Configure Additional app storage**  |  |  |
 | (Advanced) Type of Storage | `hostPath` |  |
-| hostPath | <select a dataset for sharing> |  |
+| hostPath | \<select a dataset for sharing> |  |
 | mountPath * | `/mnt/nextcloud` |  |
 | Enable Ingress | true (checked) | please enter your SSL settings |
+
+## Fulltext Search
+
+Launch new Docker image
+
+| Label | Value | Comment |
+|--|--|--|
+| Image repository * | `dsteinkopf/elasticsearch-ingest-attachment` | |
+| **Container Environment Variable**  |  |  |
+|  discovery.type  | `single-node` |  |
+| **Port Forwarding Configuration**  |  |  |
+|  Container Port *  | `9200` |  |
+|  Node Port * | `9200` |  |
 
 ### Plugins
 
